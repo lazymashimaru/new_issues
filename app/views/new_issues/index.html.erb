@@ -1,0 +1,37 @@
+<h1>Listing new_issues</h1>
+
+<%= link_to 'Issues', new_issues_path %>
+<br>
+<%= link_to 'New Issue', new_new_issue_path %>
+
+<%=render 'search'  %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title <%= link_to 'sort', new_issues_path(sort: 'title') %></th>
+      <th>Description <%= link_to 'sort', new_issues_path(sort: 'description') %></th>
+      <th>No followers <%= link_to 'sort', new_issues_path(sort: 'no_followers') %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @new_issues.each do |new_issue| %>
+      <tr>
+        <td><%= new_issue.title %></td>
+        <td><%= new_issue.description %></td>
+        <td><%= new_issue.no_followers %></td>
+        <td><%= link_to 'Show', new_issue %></td>
+        <td><%= link_to 'Edit', edit_new_issue_path(new_issue) %></td>
+        <td><%= link_to 'Destroy', new_issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New issue', new_new_issue_path %>

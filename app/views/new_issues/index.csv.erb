@@ -1,0 +1,3 @@
+<% @new_issues.each do |issue| %>
+<%=issue.title%>,<%=issue.created_at.to_s(:rfc822)%>,<%=issue.description%>
+<% end %>
